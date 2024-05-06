@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistikk over befolkning i Norge</title>
+    <link rel="stylesheet" href="style.css">
+
+    <script type="text/javascript" src="https://json-stat.org/lib/json-stat.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script type="text/javascript" src="https://code.highcharts.com/highcharts.js"></script>
+</head>
+
+<body>
+
+    <div id="bg-container">
+        <div id="bg">
+            <header>
+                <div class="tittle-container">
+                    <h1 id="Hovedtittel">Befolkningsstatistikk</h1>
+                </div>
+            </header>
+            <div class="line-container">
+
+                <div class="line"></div>
+            </div>
+
+            <div id="input-container">
+                <div id="years-container">
+                    <div class="year-box highlighted" onclick="highlightÅr(this, 2024)">2024</div>
+                    <div class="year-box" onclick="highlightÅr(this, 2023)">2023</div>
+                    <div class="year-box" onclick="highlightÅr(this, 2022)">2022</div>
+                    <div class="year-box" onclick="highlightÅr(this, 2021)">2021</div>
+                    <div class="year-box" onclick="highlightÅr(this, 2020)">2020</div>
+                    <div class="year-box" onclick="highlightÅr(this, 2019)">2019</div>
+                    <div class="year-box" onclick="highlightÅr(this, 2018)">2018</div>
+                    <div class="year-box" onclick="highlightÅr(this, 2017)">2017</div>
+                    <div class="year-box" onclick="highlightÅr(this, 2016)">2016</div>
+                    <div class="year-box" onclick="highlightÅr(this, 2015)">2015</div>
+                    <div class="year-box" onclick="highlightÅr(this, 2014)">2014</div>
+                    <div class="year-box" onclick="highlightÅr(this, 2013)">2013</div>
+                    <div class="year-box" onclick="highlightÅr(this, 2012)">2012</div>
+                    <div class="year-box" onclick="highlightÅr(this, 2011)">2011</div>
+                    <div class="year-box" onclick="highlightÅr(this, 2010)">2010</div>
+                    <div class="year-box" onclick="highlightÅr(this, 2009)">2009</div>
+                    <div class="year-box" onclick="highlightÅr(this, 2008)">2008</div>
+                    <div class="year-box" onclick="highlightÅr(this, 2007)">2007</div>
+                </div>
+
+                <div id="kommuner-container">
+                    <div class="year-box highlighted" onclick="highlightKommuner(this, '0301')">Oslo</div>
+                    <div class="year-box" onclick="highlightKommuner(this, 4601)">Bergen</div>
+                    <div class="year-box" onclick="highlightKommuner(this, 1103)">Stavanger</div>
+                    <div class="year-box" onclick="highlightKommuner(this, 5001)">Trondheim</div>
+                    <div class="year-box" onclick="highlightKommuner(this, 3201)">Bærum</div>
+                    <div class="year-box" onclick="highlightKommuner(this, 3107)">Fredrikstad</div>
+                    <div class="year-box" onclick="highlightKommuner(this, 4204)">Kristiansand</div>
+                    <div class="year-box" onclick="highlightKommuner(this, 1108)">Sandnes</div>
+                    <div class="year-box" onclick="highlightKommuner(this, 3301)">Drammen</div>
+                    <div class="year-box" onclick="highlightKommuner(this, 5501)">Tromsø</div>
+                </div>
+
+            </div>
+
+            <div class="beregninger">
+                <button class="calcBtn" onclick="highlightBeregninger(this, 'Gjennomsnitt')">Gjennomsnitt</button>
+                <button class="calcBtn" onclick="highlightBeregninger(this, 'Median')">Median</button>
+                <button class="calcBtn" onclick="highlightBeregninger(this, 'Maksimum')">Maksimum</button>
+                <button class="calcBtn" onclick="highlightBeregninger(this, 'Minimum')">Minimum</button>
+            </div>
+
+            <div class="actionKnapp">
+                <button id="visTabell" onclick="fetchStats()">Vis tabell</button>
+            </div>
+
+            <div class="table">
+                <table id="mainTable">
+                    <thead>
+                        <tr>
+                            <th>Kommmune</th>
+                            <th id="kolonneÅr">År</th>
+                            <th>Befolkning</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
